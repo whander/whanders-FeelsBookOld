@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/angerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/anger" />
+
+    <Button
+        android:id="@+id/fearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fear" />
+
+    <Button
+        android:id="@+id/joyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/joy" />
+
+    <Button
+        android:id="@+id/loveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/love" />
+
+    <Button
+        android:id="@+id/sadnessButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sadness" />
+
+    <Button
+        android:id="@+id/surpriseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/surprise" />
+
+    <Button
+        android:id="@+id/historyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/history" />
+
+    <Button
+        android:id="@+id/countButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/count" />
+</LinearLayout>

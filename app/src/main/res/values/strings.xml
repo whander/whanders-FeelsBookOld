@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="hello">Enter text here:</string>
+    <string name="app_name">whanders-FeelsBook</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="anger">Anger</string>
+    <string name="fear">Fear</string>
+    <string name="joy">Joy</string>
+    <string name="love">Love</string>
+    <string name="sadness">Sadness</string>
+    <string name="surprise">Surprise</string>
+    <string name="history">History</string>
+    <string name="back">Back</string>
+    <string name="count">Emotion Count</string>
+    <string name="back2">Back</string>
+
+</resources>
