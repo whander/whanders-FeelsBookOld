@@ -22,18 +22,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class HistoryActivity extends Activity {
-
-   
+    //intializes all the variables used in the HistoryActivity, primarily anything related the the older posts
     public ListView getOldPostsList() {
         return oldPostsList;
     }
-
     private ListView oldPostsList;
-
     public ArrayList<Post> getPosts() {
         return posts;
     }
-
     private ArrayList<Post> posts = StartActivity.posts;
     private ArrayAdapter<Post> adapter;
 
@@ -41,10 +37,10 @@ public class HistoryActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("whanders", "got to history");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history);
 
+        //loads all the old posts into a listview.
         oldPostsList = (ListView) findViewById(R.id.oldPostsList); //view
 
         final Button Delete = (Button)findViewById(R.id.delete);
@@ -57,6 +53,7 @@ public class HistoryActivity extends Activity {
             }
         });
 
+        //returns user to main menu
         Button backButton = (Button)findViewById(R.id.backButtonId);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +63,7 @@ public class HistoryActivity extends Activity {
             }
         });
 
+        //allows someone to choose a post and then select whether you want to edit or delete it
         oldPostsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -79,8 +77,6 @@ public class HistoryActivity extends Activity {
 
 			}
 		});
-
-
     }
 
     @Override
@@ -93,17 +89,12 @@ public class HistoryActivity extends Activity {
     }
 
     private void loadFromFile() {
-      //  Log.d("whanders", "loadingFromFile");
         try {
             FileInputStream fis = openFileInput(StartActivity.FILENAME);
-        //    Log.d("whanders", "No issues here");
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-          //  Log.d("whanders", "still working");
             Gson gson = new Gson();
-            //Log.d("whanders", "can keep going");
             // Taken from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html 2015-09-22
             Type listType = new TypeToken<ArrayList<Post>>(){}.getType();
-            //Log.d("whanders", "here");
             posts = gson.fromJson(in, listType);
             Log.d("whanders", "done");
         } catch (FileNotFoundException e) {

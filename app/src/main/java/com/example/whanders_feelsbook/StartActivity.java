@@ -21,44 +21,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 //Code borrowed from https://github.com/joshua2ua/lonelyTwitter/tree/f15tuesday and edited. Code for LonelyTwitteActivity, onCreate, onStart, SaveInFile, LoadFromFile, ImportantPost, Post, NormalPost, PostTooLongException.
-
 public class StartActivity extends Activity {
-
+    //filename is used for saving and loading
+    //temp is used for creating a new post
+    //post is the list of old posts found by loadFromFile()
     protected static final String FILENAME = "file.sav";
     private StartActivity activity = this;
     protected static Post temp;
-
-    //public Button getSaveButton() {
-    //	return saveButton;
-    //}
-
-    //private Button saveButton;
-
-    /*public EditText getBodyText() {
-        return bodyText;
-    }
-
-    private EditText bodyText;
-
-    */
-
-   /* public ListView getOldPostsList() {
-        return oldPostsList;
-    }
-
-    private ListView oldPostsList;
-
-
-    public ArrayList<Post> getPosts() {
-        return posts;
-    }
-
-*/
     protected static ArrayList<Post> posts = new ArrayList<Post>();
-//    protected ArrayAdapter<Post> adapter;
-
-
-
 
     /** Called when the activity is first created. */
     @Override
@@ -67,6 +37,7 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState); // view
         setContentView(R.layout.activity_start); // view
 
+        //Initialization of all the elements of the layout activity_start. Most are self-explanatory
         Button historyButton = (Button)findViewById(R.id.historyButton);
         Button AngerButton = (Button)findViewById(R.id.angerButton);
         Button fearButton = (Button)findViewById(R.id.fearButton);
@@ -76,10 +47,7 @@ public class StartActivity extends Activity {
         Button surpriseButton = (Button)findViewById(R.id.surpriseButton);
         Button countButton = (Button)findViewById(R.id.countButton);
 
-       // bodyText = (EditText) findViewById(R.id.body);
-     //   oldPostList = (ListView) findViewById(R.id.oldPostList);
-
-
+        //Loads the history activity
         historyButton.setOnClickListener(new View.OnClickListener() {
             //Log.d("whanders", "got to the listener");
             public void onClick(View v) {
@@ -90,6 +58,7 @@ public class StartActivity extends Activity {
             }
         });
 
+        //All emotion buttons load the add text layout and record whichever emotion is clicked on
         AngerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,6 +143,7 @@ public class StartActivity extends Activity {
             }
         });
 
+        //Loads the emotion count portion of the app
         countButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,39 +152,16 @@ public class StartActivity extends Activity {
                 startActivity(switchtToCount);
             }
         });
-
-        //bodyText = (EditText) findViewById(R.id.body); //view
-        //	saveButton = (Button) findViewById(R.id.save);
-        //oldPostsList = (ListView) findViewById(R.id.oldPostsList); //view
-
-		/*saveButton.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				setResult(RESULT_OK);
-				String text = bodyText.getText().toString(); //controller
-				posts.add(new NormalPost(text)); // controller
-				adapter.notifyDataSetChanged(); // view
-				saveInFile(); // model
-			}
-		});*/
-
-		/*oldPostsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent intent = new Intent(activity, EditPostActivity.class);
-				startActivity(intent);
-			}
-		});*/
     }
 
    @Override
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-        loadFromFile();
-        //adapter = new ArrayAdapter<Post>(this, R.layout.list_item, posts);
-        //oldPostsList.setAdapter(adapter);
-    }
 
+        //loads all the previous posts so history and emotion count can use them
+        loadFromFile();
+    }//end onStart()
 
    private void loadFromFile() {
         try {
@@ -229,21 +176,5 @@ public class StartActivity extends Activity {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-/*
-    private void saveInFile() {
-        try {
-            FileOutputStream fos = openFileOutput(FILENAME,
-                    0);
-            OutputStreamWriter writer = new OutputStreamWriter(fos);
-            Gson gson = new Gson();
-            gson.toJson(posts, writer);
-            writer.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
+    }//end loadFromFile()
 }//end activity
