@@ -35,7 +35,6 @@ public class AddTextActivity extends Activity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("whanders", "successfully switched activities to addText");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_text);
 
@@ -70,10 +69,10 @@ public class AddTextActivity extends Activity  {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
+
     }
 
     private void saveInFile() {
-        Log.d("whanders", "got to save");
         try {
             FileOutputStream fos = openFileOutput(StartActivity.FILENAME,
                     0);

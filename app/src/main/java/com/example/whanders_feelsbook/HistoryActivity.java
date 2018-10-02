@@ -16,10 +16,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HistoryActivity extends Activity {
     //intializes all the variables used in the HistoryActivity, primarily anything related the the older posts
@@ -65,13 +68,23 @@ public class HistoryActivity extends Activity {
 
         //allows someone to choose a post and then select whether you want to edit or delete it
         oldPostsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
 			    Edit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(HistoryActivity.this, EditActivity.class);
-                        startActivity(intent);
+                        Intent switchToEdit = new Intent(HistoryActivity.this, EditActivity.class);
+                        switchToEdit.putExtra("position", position);
+                        startActivity(switchToEdit);
+                    }
+                });
+
+			    Delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        posts.remove(position);
+                        saveInFile();
+                        adapter.notifyDataSetChanged();
                     }
                 });
 
@@ -84,6 +97,7 @@ public class HistoryActivity extends Activity {
         // TODO Auto-generated method stub
         super.onStart();
         loadFromFile();
+        sort();
         adapter = new ArrayAdapter<Post>(this, R.layout.list_item, posts);
         oldPostsList.setAdapter(adapter);
     }
@@ -96,12 +110,40 @@ public class HistoryActivity extends Activity {
             // Taken from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html 2015-09-22
             Type listType = new TypeToken<ArrayList<Post>>(){}.getType();
             posts = gson.fromJson(in, listType);
-            Log.d("whanders", "done");
         } catch (FileNotFoundException e) {
             posts = new ArrayList<Post>();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(StartActivity.FILENAME,
+                    0);
+            OutputStreamWriter writer = new OutputStreamWriter(fos);
+            Gson gson = new Gson();
+            gson.toJson(posts, writer);
+            writer.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void sort(){
+        for (int x = 0; x < posts.size(); x++){
+            for (int y = 0; y < posts.size(); y++){
+                if (posts.get(x).getDate().before(posts.get(y).getDate())){
+                    Post temp = posts.get(x);
+                    posts.set(x, posts.get(y));
+                    posts.set(y, temp);
+                }
+            }
+        }
+
     }
 
 }

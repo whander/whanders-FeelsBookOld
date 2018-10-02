@@ -37,7 +37,7 @@ public class Post extends Object {
     }
 
     public void setText(String text) throws PostTooLongException {
-        if (text.length() <= 140) {
+        if (text.length() <= 100) {
             this.text = text;
         } else {
             throw new PostTooLongException();
