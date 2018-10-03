@@ -1,6 +1,7 @@
 package com.example.whanders_feelsbook;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,14 +9,14 @@ import java.util.Date;
  * Created by joshua2 on 9/16/15.
  */
 
-//implements Postable, MyObservable
+//The shell and most base functions were taken from lonelyTwitter lab but were heavily edited by me.
 
 public class Post extends Object {
     private String text;
-    protected Date date;
+    protected String date;
     protected Mood mood;
 
-    public Post(String text, Date date, Mood mood){
+    public Post(String text, String date, Mood mood){
         this.text = text;
         this.date = date;
         this.mood = mood;
@@ -29,7 +30,9 @@ public class Post extends Object {
 
     public Post(){
         //this.setMood(mood);
-        this.date = new Date(System.currentTimeMillis());
+        Date theDate = new Date(System.currentTimeMillis());
+        SimpleDateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        this.date = iso.format(theDate);
     }
 
     public String getText() {
@@ -42,24 +45,23 @@ public class Post extends Object {
         } else {
             throw new PostTooLongException();
         }
-        //notifyAllObservers();
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return this.date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-        //notifyAllObservers();
+
+    public void setDate(String time){
+        this.date = time;
     }
 
     @Override
     public String toString() {
         if (this.text != null) {
-            return mood.getType() + " | " + date.toString() + " | " + text;
+            return mood.getType() + " | " + this.date + " | " + text;
         }else{
-            return mood.getType() + " | " + date.toString();
+            return mood.getType() + " | " + this.date;
         }
     }
 
@@ -72,17 +74,6 @@ public class Post extends Object {
         return mood.getType();
     }
 
-    //private volatile ArrayList<MyObserver> observers = new ArrayList<MyObserver>();
-
-  /*  public void addObserver(MyObserver observer) {
-        observers.add(observer);
-    }
-
-    private void notifyAllObservers() {
-        for (MyObserver observer : observers) {
-            observer.myNotify(this);
-        }
-    }*/
 
 
 }

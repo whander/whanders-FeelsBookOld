@@ -139,7 +139,7 @@ public class EditActivity extends Activity {
         updateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Date date = new Date(System.currentTimeMillis());
+                String date = bodyText.getText().toString();
                 currentPost.setDate(date);
                 saveInFile();
                 adapter.notifyDataSetChanged();

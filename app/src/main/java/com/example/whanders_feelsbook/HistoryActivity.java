@@ -136,7 +136,7 @@ public class HistoryActivity extends Activity {
     private void sort(){
         for (int x = 0; x < posts.size(); x++){
             for (int y = 0; y < posts.size(); y++){
-                if (posts.get(x).getDate().before(posts.get(y).getDate())){
+                if (posts.get(x).getDate().compareTo(posts.get(y).getDate()) < 0){
                     Post temp = posts.get(x);
                     posts.set(x, posts.get(y));
                     posts.set(y, temp);
