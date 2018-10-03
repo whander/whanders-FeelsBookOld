@@ -8,5 +8,6 @@ https://stackoverflow.com/questions/6900437/android-app-unable-to-start-activity
 https://stackoverflow.com/questions/12288629/how-do-i-get-a-variable-in-another-activity
 https://stackoverflow.com/questions/2592501/how-to-compare-dates-in-java
 https://eclass.srv.ualberta.ca/mod/forum/discuss.php?d=1044559
+https://mincong-h.github.io/2017/02/16/convert-date-to-string-in-java/
 
 Code borrowed from https://github.com/joshua2ua/lonelyTwitter/tree/f15tuesday and edited. Code for LonelyTwitteActivity, onCreate, onStart, SaveInFile, LoadFromFile, ImportantPost, Post, NormalPost, PostTooLongException.
