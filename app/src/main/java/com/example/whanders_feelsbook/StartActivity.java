@@ -49,10 +49,8 @@ public class StartActivity extends Activity {
 
         //Loads the history activity
         historyButton.setOnClickListener(new View.OnClickListener() {
-            //Log.d("whanders", "got to the listener");
             public void onClick(View v) {
                 Intent switchToHistory = new Intent(StartActivity.this, HistoryActivity.class);
-                //Log.d("whanders", "added intent fine");
                 startActivity(switchToHistory);
 
             }
@@ -64,10 +62,7 @@ public class StartActivity extends Activity {
             public void onClick(View v) {
                 Anger anger = new Anger();
                 setResult(RESULT_OK);
-                //String text = bodyText.getText().toString(); //controller
                 posts.add(new Post(anger)); // controller
-               // adapter.notifyDataSetChanged(); // view
-                //saveInFile(); // model
                 Intent switchToAddText = new Intent(StartActivity.this, AddTextActivity.class);
                 startActivity(switchToAddText);
             }
@@ -78,10 +73,7 @@ public class StartActivity extends Activity {
             public void onClick(View v) {
                 Love love = new Love();
                 setResult(RESULT_OK);
-                //String text = bodyText.getText().toString(); //controller
                 posts.add(new Post(love)); // controller
-                // adapter.notifyDataSetChanged(); // view
-                //saveInFile(); // model
                 Intent switchToAddText = new Intent(StartActivity.this, AddTextActivity.class);
                 startActivity(switchToAddText);
             }
@@ -92,10 +84,7 @@ public class StartActivity extends Activity {
             public void onClick(View v) {
                 Fear fear = new Fear();
                 setResult(RESULT_OK);
-                //String text = bodyText.getText().toString(); //controller
                 posts.add(new Post(fear)); // controller
-                // adapter.notifyDataSetChanged(); // view
-                //saveInFile(); // model
                 Intent switchToAddText = new Intent(StartActivity.this, AddTextActivity.class);
                 startActivity(switchToAddText);
             }
@@ -106,10 +95,7 @@ public class StartActivity extends Activity {
             public void onClick(View v) {
                 Joy joy = new Joy();
                 setResult(RESULT_OK);
-                //String text = bodyText.getText().toString(); //controller
                 posts.add(new Post(joy)); // controller
-                // adapter.notifyDataSetChanged(); // view
-                //saveInFile(); // model
                 Intent switchToAddText = new Intent(StartActivity.this, AddTextActivity.class);
                 startActivity(switchToAddText);
             }
@@ -120,10 +106,7 @@ public class StartActivity extends Activity {
             public void onClick(View v) {
                 Sadness sadness = new Sadness();
                 setResult(RESULT_OK);
-                //String text = bodyText.getText().toString(); //controller
                 posts.add(new Post(sadness)); // controller
-                // adapter.notifyDataSetChanged(); // view
-                //saveInFile(); // model
                 Intent switchToAddText = new Intent(StartActivity.this, AddTextActivity.class);
                 startActivity(switchToAddText);
             }
@@ -134,10 +117,7 @@ public class StartActivity extends Activity {
             public void onClick(View v) {
                 Surprise surprise = new Surprise();
                 setResult(RESULT_OK);
-                //String text = bodyText.getText().toString(); //controller
                 posts.add(new Post(surprise)); // controller
-                // adapter.notifyDataSetChanged(); // view
-                //saveInFile(); // model
                 Intent switchToAddText = new Intent(StartActivity.this, AddTextActivity.class);
                 startActivity(switchToAddText);
             }
