@@ -25,6 +25,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 //loadFromFile, saveInFile, and listView (list_item too) taken from lonelyTwitter lab
+//Purpose of the class is to display all previous posts. It displays text, time, and mood for each post. Also allows the user to delete
+//prior posts, and choose to edit old ones.
+//No known issues
 
 public class HistoryActivity extends Activity {
     //intializes all the variables used in the HistoryActivity, primarily anything related the the older posts
