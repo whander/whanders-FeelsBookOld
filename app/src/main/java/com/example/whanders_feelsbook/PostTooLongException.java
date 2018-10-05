@@ -1,8 +1,7 @@
 package com.example.whanders_feelsbook;
 
-/**
- * Created by joshua2 on 9/16/15.
- */
+//taken from lonelyTwitter lab
+
 public class PostTooLongException extends RuntimeException {
 
 }
