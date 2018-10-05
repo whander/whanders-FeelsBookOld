@@ -18,6 +18,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 //https://stackoverflow.com/questions/2091465/how-do-i-pass-data-between-activities-in-android-application
+//saveInFile borrowed from lonelyTwitter
 
 public class AddTextActivity extends Activity  {
     //private static final String FILENAME = "file.sav";
@@ -54,9 +55,6 @@ public class AddTextActivity extends Activity  {
 
                 saveInFile();
                 finish();
-
-                //Intent switchToMain = new Intent(AddTextActivity.this, StartActivity.class);
-                //startActivity(switchToMain);
 
             }
         });
