@@ -19,9 +19,11 @@ import java.util.ArrayList;
 
 //https://stackoverflow.com/questions/2091465/how-do-i-pass-data-between-activities-in-android-application
 //saveInFile borrowed from lonelyTwitter
+//Purpose of this class is for adding the optional text for a post after selecting an emotion. The save button will add the text to the post 
+//if there is any and it is small enough (less than 100 characters). 
+//No known issues
 
 public class AddTextActivity extends Activity  {
-    //private static final String FILENAME = "file.sav";
 
     public EditText getBodyText() {
         return bodyText;
