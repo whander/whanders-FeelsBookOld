@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+
+//purpose of this class is to count the number of occurences of each emotion in the history list, and to display them
+//No known issues
+
 public class EmotionCountActivity extends Activity {
     //intializes all variables used in EmotionCountActivity
     private int angercount = 0;
