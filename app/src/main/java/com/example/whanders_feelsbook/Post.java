@@ -5,11 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Created by joshua2 on 9/16/15.
- */
-
-//The shell and most base functions were taken from lonelyTwitter lab but were heavily edited by me.
+//The shell and most base functions were taken from lonelyTwitter lab (specifically the Tweet class) but were heavily edited by me.
 
 public class Post extends Object {
     private String text;
