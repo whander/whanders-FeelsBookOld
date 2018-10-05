@@ -24,6 +24,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//loadFromFile, saveInFile, and listView (list_item too) taken from lonelyTwitter lab
+
 public class HistoryActivity extends Activity {
     //intializes all the variables used in the HistoryActivity, primarily anything related the the older posts
     public ListView getOldPostsList() {
@@ -48,14 +50,7 @@ public class HistoryActivity extends Activity {
 
         final Button Delete = (Button)findViewById(R.id.delete);
         final Button Edit = (Button)findViewById(R.id.edit);
-
-        Delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+	    
         //returns user to main menu
         Button backButton = (Button)findViewById(R.id.backButtonId);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +128,7 @@ public class HistoryActivity extends Activity {
         }
     }
 
+    //this function is a variation on bubble sort that uses string comparisons for dates. Organizes the history list in ascending order
     private void sort(){
         for (int x = 0; x < posts.size(); x++){
             for (int y = 0; y < posts.size(); y++){
