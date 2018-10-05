@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 //The shell and most base functions were taken from lonelyTwitter lab (specifically the Tweet class) but were heavily edited by me.
+//Post is an object that is used to store the mood, text, and time for a specific stored emotion. 
+//No known issues
 
 public class Post extends Object {
     //text is the optional text for a post
