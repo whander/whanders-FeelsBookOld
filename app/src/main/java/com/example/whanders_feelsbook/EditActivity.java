@@ -19,6 +19,8 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
+//saveInFile and listview taken from lonelyTwitter lab
+
 public class EditActivity extends Activity {
     private ArrayList<Post> posts = StartActivity.posts;
     private ArrayAdapter<Post> adapter;
@@ -31,6 +33,7 @@ public class EditActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit);
 
+        //this grabs the position of the post that is being edited from the list
         Bundle extras = getIntent().getExtras();
         position = extras.getInt("position");
 
@@ -49,15 +52,11 @@ public class EditActivity extends Activity {
         Button surpriseButton = (Button)findViewById(R.id.surpriseButton2);
         Button updateTime = (Button)findViewById(R.id.updateTime);
 
-
-        //TextView displayPost = (TextView)findViewById(R.id.currentPost);
-
-        Log.d("in onCreate", Integer.toString(position));
-
+        //this makes a copy of the post for editing
         final Post currentPost = posts.get(position);
 
-        //displayPost.setText(currentPost.toString());
-
+        
+        //saveInFile is called on every button so the post changes can be seen while still editing
         updateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,7 +152,6 @@ public class EditActivity extends Activity {
     protected void onStart(){
         super.onStart();
         //this will retrieve the position of the correct post
-        Log.d("in Onstart", Integer.toString(position));
         neededPost.add(posts.get(position));
         adapter = new ArrayAdapter<Post>(this, R.layout.list_item, neededPost);
         displayPost.setAdapter(adapter);
