@@ -20,7 +20,11 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-//Code borrowed from https://github.com/joshua2ua/lonelyTwitter/tree/f15tuesday and edited. Code for LonelyTwitteActivity, onCreate, onStart, SaveInFile, LoadFromFile, ImportantPost, Post, NormalPost, PostTooLongException.
+//Code borrowed from https://github.com/joshua2ua/lonelyTwitter/tree/f15tuesday and edited. Code for LonelyTwitteActivity, onCreate, 
+//onStart, SaveInFile, LoadFromFile, ImportantPost, Post, NormalPost, PostTooLongException.
+//Purpose of this class is to act as the core of the whole app (app starts here as well). Most activity classes are accessed through here 
+//and the emotion can be recorded here. Also allows the choice to display history (where editing and deleting posts can also be accessed). 
+
 public class StartActivity extends Activity {
     //filename is used for saving and loading
     //temp is used for creating a new post
