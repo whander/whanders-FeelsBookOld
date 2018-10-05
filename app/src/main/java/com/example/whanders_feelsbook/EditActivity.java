@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 //saveInFile and listview taken from lonelyTwitter lab
+//Purpose of this class is to edit previous posts found in the history tab. Time, text, and emotion can be edited
+//Known issue: No constraints on updating time. Assumes correct input for time only. 
 
 public class EditActivity extends Activity {
     private ArrayList<Post> posts = StartActivity.posts;
