@@ -2,6 +2,9 @@ package com.example.whanders_feelsbook;
 
 import java.util.Date;
 
+//purpose of this class is to create a mood object that is used in the post object. Contains date created and type
+//No known issues
+
 public class Mood {
     //mood is the primary class. All actual moods (ie, anger, sadness, etc.) are subclasses of mood.
 
